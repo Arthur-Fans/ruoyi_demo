@@ -22,7 +22,7 @@ import com.ruoyi.system.service.ISysConfigService;
 
 /**
  * 验证码操作处理
- * 
+ *
  * @author ruoyi
  */
 @RestController
@@ -36,7 +36,7 @@ public class CaptchaController
 
     @Autowired
     private RedisCache redisCache;
-    
+
     @Autowired
     private ISysConfigService configService;
     /**
@@ -54,7 +54,7 @@ public class CaptchaController
         }
 
         // 保存验证码信息
-        String uuid = IdUtils.simpleUUID();
+        String uuid = IdUtils.simpleUUID(); // 生成 redis 的key值
         String verifyKey = CacheConstants.CAPTCHA_CODE_KEY + uuid;
 
         String capStr = null, code = null;
